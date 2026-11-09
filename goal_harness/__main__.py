@@ -3,6 +3,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from goal_harness.demo import run_demo
+
 def run(label: str, command: list[str], cwd: Path) -> int:
     result = subprocess.run(command, cwd=cwd, text=True, capture_output=True)
     print(f"{label}: {'PASS' if result.returncode == 0 else 'FAIL'}")
@@ -16,7 +18,13 @@ def main() -> int:
     for name in ("validate", "capability-check", "delivery-audit"):
         command = commands.add_parser(name); command.add_argument("--root", default=".")
         if name == "delivery-audit": command.add_argument("--guard")
-    args = parser.parse_args(); root = Path(args.root).resolve(); python = sys.executable
+    demo = commands.add_parser("demo", help="reproduce a false success claim")
+    demo.add_argument("--keep", action="store_true", help="keep the disposable workspace")
+    demo.add_argument("--workspace", help="use this directory instead of a temp directory")
+    args = parser.parse_args()
+    if args.command == "demo":
+        return run_demo(keep=args.keep, workspace_path=args.workspace)
+    root = Path(args.root).resolve(); python = sys.executable
     if args.command == "validate":
         goal = run("Goal validator", [python, "-B", "source/goal/scripts/validate_goal_skill.py", "source/goal"], root)
         harness = run("Harness validator", [python, "-B", "source/harness-engineering/scripts/validate_harness_skill.py", "source/harness-engineering"], root)
