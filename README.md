@@ -1,6 +1,6 @@
 # Goal Harness
 
-[![CI](https://github.com/suiuiui6/goal-harness-web-fullstack/actions/workflows/ci.yml/badge.svg)](https://github.com/suiuiui6/goal-harness-web-fullstack/actions/workflows/ci.yml)
+[![CI](https://github.com/suiuiui6/goal-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/suiuiui6/goal-harness/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Your coding agent says the tests passed. This shows what it actually proved.**
