@@ -22,6 +22,6 @@ jobs:
       - run: python -B -m pytest --rootdir . -p no:cacheprovider tests -q
       - run: python -B -m pytest --rootdir . -p no:cacheprovider source/goal-enforcement/tests -q
       - run: python -B -m pytest --rootdir . -p no:cacheprovider source/goal/scripts -q
-      - run: python -B -m pytest --rootdir . -p no:cacheprovider source/harness-engineering/scripts -q
+      - run: python -B source/harness-engineering/tools/validate_harness_skill.py source/harness-engineering --installed
       - run: python -B -m goal_harness validate --root .
       - run: python -B tools/check_source_integrations.py --root . --online

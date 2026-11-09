@@ -2,7 +2,7 @@
 
 ## Scope
 
-Harness Engineering is a documentation-driven delivery method for project bootstrap and stabilization. Within this portable bundle, the canonical capability specification lives in the bundle root (`SPEC.md`, `PHASES.md`, and `CHECKS.md`), while `core/*` defines a strict Layer 0-6 sequence for build-up and maintenance-mode policy after go-live.
+Harness Engineering is a documentation-driven delivery method for project bootstrap and stabilization. The canonical capability specification lives in `SKILL.md` and `core/*`, which define a strict Layer 0-6 sequence for build-up and maintenance-mode policy after go-live.
 
 ## Entry Classification
 

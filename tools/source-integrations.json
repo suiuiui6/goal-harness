@@ -14,9 +14,9 @@
     {
       "name": "harness-engineering",
       "repository": "https://github.com/suiuiui6/harness-engineering-skill",
-      "ref": "master",
-      "commit": "02e19200c12395170b784e40b28a320e4772a1cb",
-      "canonical_path": "SKILL.md, core, references, adapters, scripts, evals",
+      "ref": "main",
+      "commit": "65e102e6ea5476c94f8eb4ea7e0f71d79296d13b",
+      "canonical_path": "SKILL.md, core, references, adapters, tools",
       "integration_path": "source/harness-engineering",
       "compatibility": "seven-layer Harness contract; load-policy v1; audit-only-windows"
     }

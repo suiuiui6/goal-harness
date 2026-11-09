@@ -70,16 +70,11 @@
 
 ## Maintenance Iteration Checklist
 
-- [ ] Goal statement and bounded execution plan are recorded.
-- [ ] Execution environment facts and isolation boundary are recorded.
 - [ ] Change impact layer is identified.
 - [ ] Rollback scope is minimal and explicit.
 - [ ] Affected specs are updated.
 - [ ] Tests for affected contracts are executed.
 - [ ] New findings are written back to relevant docs.
-- [ ] Retrospective records result, deviations, lessons, and evidence limits.
-- [ ] Next-state handoff records the next start layer, preserved evidence, and open risks.
-- [ ] A per-feature/work-item ledger is used when the scope has multiple independently verifiable items or spans sessions.
 
 ## Anti-Pattern Spot Check
 
@@ -88,14 +83,3 @@
 - [ ] No blueprint skip before implementation.
 - [ ] No docs-code drift left unresolved.
 - [ ] No review or readiness bypass before release.
-
-## Conditional Decision-Quality Checklist
-
-- [ ] Trigger is recorded, or the exact mechanical/exact-plan skip reason is recorded.
-- [ ] When first-principles is active, concise **Constraints**, **Assumptions**, **Falsifier**, and **Decision** fields are present.
-- [ ] The fixed evidence block begins with `Decision quality:`, includes the canonical `Decision` field, and serializes the first-principles `Falsifier` condition in `Falsifiers / probes` with executable probe results and gaps.
-- [ ] When adversarial review is active, at least three threats have executable probes, results, identified gaps, and residual risk; cover partially covered requirements, misleading tests, and untested error/concurrency/rollback paths as applicable.
-- [ ] Missing high-severity probes or unresolved high-severity threats do not yield pass; choose `stay`, minimal upstream `rollback`, or `blocked`.
-- [ ] Accepted medium- or low-risk items are recorded with rationale, owner, and follow-up evidence.
-- [ ] Outcome is one of `pass | stay | rollback | blocked`, with the minimal affected layer and rollback rationale when relevant.
-- [ ] A complete approved GSD receipt is consumed once without duplicate review; incomplete, missing, disabled, invalid, version-mismatched, or blocked GSD follows Harness fallback. Only `plan-phase`, `execute-phase`, and `verify-work` are allowlisted; no `gsd-review` or autonomous operation.

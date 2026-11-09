@@ -27,7 +27,7 @@ def main() -> int:
     root = Path(args.root).resolve(); python = sys.executable
     if args.command == "validate":
         goal = run("Goal validator", [python, "-B", "source/goal/scripts/validate_goal_skill.py", "source/goal"], root)
-        harness = run("Harness validator", [python, "-B", "source/harness-engineering/scripts/validate_harness_skill.py", "source/harness-engineering"], root)
+        harness = run("Harness validator", [python, "-B", "source/harness-engineering/tools/validate_harness_skill.py", "source/harness-engineering", "--installed"], root)
         return goal or harness
     guard = Path(args.guard).resolve() if getattr(args, "guard", None) else root / "source" / "goal-enforcement" / "scripts" / "goal_guard.py"
     if args.command == "capability-check": return run("Guard capability", [python, "-B", str(guard), "capabilities"], root)

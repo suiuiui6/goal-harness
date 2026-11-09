@@ -9,8 +9,7 @@
     "source/harness-engineering/references",
     "source/harness-engineering/core",
     "source/harness-engineering/adapters",
-    "source/harness-engineering/scripts",
-    "source/harness-engineering/evals",
+    "source/harness-engineering/tools",
     "source/goal-enforcement/scripts",
     "source/goal-enforcement/hooks.json",
     "source/deployment/AGENTS.md"

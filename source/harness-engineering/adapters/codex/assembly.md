@@ -1,70 +1,21 @@
-﻿# Codex Assembly
+# Codex Assembly
 
-This file explains how to package the shared `harness-engineering` bundle for Codex without rewriting the method.
+## 层级动作装配
 
-## 0. Install Shape
+按 `core/flow.md` 与 `core/layer-details.md` 装配执行；本文件仅描述 Codex 下的执行入口。
 
-Recommended installed layout:
+- Layer 0（边界识别）：读取源码与接口契约，产出能力边界与不做项。
+- Layer 1（最小可运行）：为各组件建立最小可运行验证，保留命令与结果证据。
+- Layer 2（桥接构建）：按依赖顺序实现桥接阶段；每阶段先测再进下一阶段。
+- Layer 3（外部集成）：对可选外部系统做最小连通与契约检查，确认可用性。
+- Layer 4（蓝图产出）：按 PRD -> backend API -> frontend 设计顺序产出规范。
+- Layer 5（工程规则）：把质量、安全、提交流程固化为可执行约束。
+- Layer 6（闭环交付）：实现、联调、测试、调试、审查、就绪检查全部通过后交付。
 
-```text
-<repo>/
-├─ AGENTS.md
-├─ .codex/
-│  ├─ skills/
-│  │  └─ harness-engineering/
-│  │     ├─ SKILL.md
-│  │     ├─ SPEC.md
-│  │     ├─ PHASES.md
-│  │     ├─ CHECKS.md
-│  │     ├─ core/
-│  │     ├─ adapters/
-│  │     └─ references/
-└─ <component>/AGENTS.md
-```
+## 失败回退示例
 
-Optional repo-owned role prompts or delegation assets can live under `.codex/agents/` when the repo wants reusable templates.
+示例：Layer 2 第三阶段联调失败，发现字段语义与 Layer 0 契约不一致。
 
-## 1. Repository Root Contract
-
-Root `AGENTS.md` should enforce:
-
-- classify before coding
-- smallest valid layer re-entry
-- evidence before gate advance
-- confirmation before irreversible or shared-state actions
-- explicit `/harness-engineering` invocation when the user asks for the structured workflow
-
-## 2. Component-Local Contract
-
-Use component-level `AGENTS.md` files for local runtime, contract, and acceptance details, not for independent method forks.
-
-Component-level `AGENTS.md` files may add local runtime, contract, and acceptance details, but repository or component `AGENTS.md` files can impose higher-priority runtime instructions. Keep them aligned with the canonical bundle and do not assume Codex will automatically prefer the bundle if those instructions conflict with Harness Engineering layer, gate, rollback, or closure rules.
-
-## 3. Execution Contract
-
-`.codex/skills/harness-engineering/SKILL.md` should:
-
-- point first to `references/runtime-stages.md`
-- point to `references/delivery-arc.md` for phase-to-layer alignment
-- point to `references/output-contract.md` for classification, gate, and closure wording
-- point to `adapters/codex/host-map.md` for host execution behavior
-- load only the canonical references needed for the current scope
-- require mode plus start-layer judgment before implementation
-- require closure with `scope_result` and `operation_state`
-
-## 4. Delegation Contract
-
-When the work is sequential, keep it inline and use `update_plan`.
-When the work is independent and read-heavy, use `multi_tool_use.parallel` when the current Codex host exposes it; otherwise batch focused read-only commands.
-Use repo-owned planner/coder/reviewer/debugger prompts only when they clarify delegation and preserve layer discipline. If the repo keeps them under `.codex/agents/`, treat them as optional templates rather than required host-native agents.
-
-## 5. Validation Call
-
-Validate the installation with one explicit `/harness-engineering` run that proves:
-
-- mode classification is reported
-- smallest valid start layer is reported
-- touched layers are tracked
-- pass evidence is cited
-- final `scope_result` and `operation_state` are emitted
-
+- 回退层：回退到 Layer 0，重做边界判定与契约定义。
+- 最小修复路径：同步更新契约文档 -> 修正桥接实现 -> 重跑 Layer 1/2 验证。
+- 重新进入条件：契约与实现一致，且 Layer 2 全阶段验证再次通过。
