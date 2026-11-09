@@ -10,7 +10,7 @@ The CLI is used from a repository checkout. There is no PyPI package yet because
 ## Windows
 
 ```powershell
-git clone https://github.com/suiuiui6/goal-harness-web-fullstack.git
+git clone https://github.com/suiuiui6/goal-harness.git
 cd goal-harness-web-fullstack
 python -m pip install -e .
 python -m goal_harness demo
@@ -22,7 +22,7 @@ Enforcement mode on Windows is `audit-only-windows`. Hooks that cannot be instal
 ## macOS and Linux
 
 ```bash
-git clone https://github.com/suiuiui6/goal-harness-web-fullstack.git
+git clone https://github.com/suiuiui6/goal-harness.git
 cd goal-harness-web-fullstack
 python3 -m pip install -e .
 python3 -m goal_harness demo

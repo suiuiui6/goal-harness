@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_source_integration_manifest_has_goal_and_harness_owners():
     manifest = json.loads((ROOT / "tools/source-integrations.json").read_text(encoding="utf-8"))
-    assert manifest["integration_repo"] == "suiuiui6/goal-harness-web-fullstack"
+    assert manifest["integration_repo"] == "suiuiui6/goal-harness"
     assert {item["name"] for item in manifest["sources"]} == {"goal", "harness-engineering"}
     for item in manifest["sources"]:
         assert item["repository"].startswith("https://github.com/suiuiui6/")

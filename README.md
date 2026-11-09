@@ -20,7 +20,7 @@ verdict: not-run - the recorded evidence does not describe this workspace
 That output is produced by the repository itself. Reproduce it:
 
 ```bash
-git clone https://github.com/suiuiui6/goal-harness-web-fullstack.git
+git clone https://github.com/suiuiui6/goal-harness.git
 cd goal-harness-web-fullstack
 python -m goal_harness demo
 ```
@@ -55,7 +55,7 @@ Windows enforcement is `audit-only-windows`: audits are required evidence, and u
 There is no PyPI package yet, deliberately. The CLI resolves its validators and guard from `source/`, so a wheel would install a command that cannot run. Clone the repository and use it in place:
 
 ```bash
-git clone https://github.com/suiuiui6/goal-harness-web-fullstack.git
+git clone https://github.com/suiuiui6/goal-harness.git
 cd goal-harness-web-fullstack
 python -m pip install -e .
 goal-harness demo
