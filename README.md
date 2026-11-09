@@ -37,7 +37,7 @@ The demo creates a disposable workspace, records a passing run, edits the code a
 
 Missing observed input stays `not-run`. A passing exit code alone is not delivery evidence.
 
-## Commands
+## Quick start
 
 ```bash
 python -m goal_harness validate --root .
